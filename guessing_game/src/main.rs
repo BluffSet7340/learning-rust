@@ -1,10 +1,17 @@
-use std::io; // to use input output we take it from the standard library
+use std::io; 
+// to use input output we take it from the standard library
 // prelude aims to strike a balance by importing all the essentials that every 
 // rust program might need without having to explicitly import it
+// use rand::Rng; // unused import so commenting it out
+use std::cmp::Ordering;
 
 fn main() {
     println!("Guess the number game!");
     // the exclamation mark calls a macro in Rust
+    let sec_num = rand::random_range(1..=100); // generate number from 1 to 100
+
+    println!("The secret number is {sec_num}");
+
     println!("Please input a number: ");
 
     // declaring a variable, a mutable variable, whose value can change
@@ -12,11 +19,26 @@ fn main() {
 
     // calling the standard input from the io library
     // could be written as std::io::stdin
+    // pressing enter adds a newline to the string
     io::stdin()
         .read_line(&mut guess) // method to handle input from the user - take what the sax users says and append it to the string 
-        .expect("Failed to real line");
+        .expect("Failed to real line"); // this runs when the enum result is err, else it returns the input 
+    // read_line() returns an enum and encode info according to two state ok - and err. 
+    // ok is linked to ouput and err linked to error msg and why it failed
     // curly braces - placeholder for dynamic data
-    println!("ou guessed: {guess}")
+
+    // convert string to integer
+    let guess: u32 = guess.trim().parse().expect("Please type a number!");
+
+    println!("You guessed this number: {guess}");
+
+    // got a mismatch type error since we are taking in string as user input
+    // but the secret number is a goddamn integer
+    match guess.cmp(&sec_num){
+        Ordering::Less => println!("Too small!"),
+        Ordering::Equal => println!("You guessed right!"),
+        Ordering::Greater => println!("Too large!"),
+    }
 
     // immutability from what I understand is pointing a variable to a value that cannot be changed so when you do use a method to modify the contents of the variable, instead a new object is created and the variable points to the new object and the old object is destroyed
 }
