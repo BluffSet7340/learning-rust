@@ -1,0 +1,1 @@
+C:\Users\sbm76\Documents\Projects\rust-codes\chapter_3\assignments\temperature_converter\target\debug\temperature_converter.exe: C:\Users\sbm76\Documents\Projects\rust-codes\chapter_3\assignments\temperature_converter\src\main.rs

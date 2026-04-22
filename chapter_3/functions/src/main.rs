@@ -23,7 +23,7 @@ fn main() {
 
 
     // println!("Result of {y} after expression")
-    let value = return_five();
+    let value = return_five(); 
 
     println!("here is this returned number {value}");
 
@@ -32,15 +32,15 @@ fn main() {
 
 }
 
-fn plus_one(num: i32) -> i32 {
-    num+1
-}
+// fn plus_one(num: i32) -> i32 {
+//     num+1
+// }
 
-fn return_five() -> i32 {
-    5
-}
+// fn return_five() -> i32 {
+//     5
+// }
 
-// function signature must have explicitly annotated types
-fn another_function(num: i32, eb: char) {
-    println!("Two values: {num}, {eb}");
-}
+// // function signature must have explicitly annotated types
+// fn another_function(num: i32, eb: char) {
+//     println!("Two values: {num}, {eb}");
+// }
