@@ -83,6 +83,12 @@ fn main() {
     for idx in (1..4) {
         println!("{idx}");
     }
+
+    let never_value: u32 = loop {
+    break 42; // type of never unless it returns something, in this case value is 5
+};
+
+println!("{never_value}");
 }
 
 // fn while_loop() {
@@ -96,3 +102,5 @@ fn main() {
 
 //     println!("LIFTOFF!!!");
 // }
+
+
